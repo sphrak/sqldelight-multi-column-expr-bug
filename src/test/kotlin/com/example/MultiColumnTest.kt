@@ -18,7 +18,7 @@ class MultiColumnTest {
         val db = createTestDb(sqlDriver = driver)
 
         db.testdbQueries.insert("abc", "hello", 42)
-        db.testdbQueries.pageSelect("abc", 42)
+        db.testdbQueries.selectPage("abc", 42)
 
     }
 

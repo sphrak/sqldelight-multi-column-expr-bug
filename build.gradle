@@ -1,22 +1,26 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.9.0'
-    id 'app.cash.sqldelight' version "2.0.0"
+    id "app.cash.sqldelight" version "2.1.0-SNAPSHOT"
 }
 
 group = 'com.example'
 version = '1.0-SNAPSHOT'
 
 repositories {
+    google()
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
     maven {
         setUrl("https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
+
+
 sqldelight {
     databases {
         Testdb {
-            dialect("app.cash.sqldelight:sqlite-3-38-dialect:2.0.0")
+            dialect("app.cash.sqldelight:sqlite-3-38-dialect:2.1.0-SNAPSHOT")
             packageName = "com.example"
             schemaOutputDirectory = file("src/main/sqldelight/db")
         }
@@ -24,13 +28,13 @@ sqldelight {
 }
 
 dependencies {
-    implementation("app.cash.sqldelight:sqlite-driver:2.0.0")
+    implementation("app.cash.sqldelight:sqlite-driver:2.1.0-SNAPSHOT")
     implementation('org.xerial:sqlite-jdbc:3.42.0.0')
     implementation("ch.qos.logback:logback-classic:1.2.9")
 
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:1.7.10")
-    testImplementation 'app.cash.sqldelight:sqlite-driver:2.0.0'
+    testImplementation 'app.cash.sqldelight:sqlite-driver:2.1.0-SNAPSHOT'
     testImplementation('org.xerial:sqlite-jdbc:3.42.0.0')
 }
 

@@ -1,3 +1,4 @@
+*.db
 .gradle
 **/.idea
 sqldelight-gradle-plugin/**/gradle
